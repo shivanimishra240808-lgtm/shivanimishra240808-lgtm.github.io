@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shivani Mishra | Data Analyst & MIS Executive</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0A2540;
+    --teal: #0D5C63;
+    --gold: #C9A84C;
+    --cream: #FAF8F3;
+    --white: #FFFFFF;
+    --text: #1A1A2E;
+    --muted: #6B7280;
+    --border: #E5E0D5;
+    --card: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(250,248,243,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem; color: var(--navy); letter-spacing: -0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.875rem; font-weight: 500; color: var(--muted);
+    text-decoration: none; transition: color 0.2s;
+    font-family: 'JetBrains Mono', monospace; letter-spacing: 0.02em;
+  }
+  .nav-links a:hover { color: var(--teal); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; gap: 4rem;
+    padding: 8rem 4rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -20%; right: -10%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(13,92,99,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: 10%; left: -5%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; color: var(--teal); font-weight: 500;
+    background: rgba(13,92,99,0.08); border: 1px solid rgba(13,92,99,0.2);
+    padding: 0.35rem 0.85rem; border-radius: 20px; margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-tag::before { content: '●'; font-size: 0.5rem; animation: pulse 2s infinite; }
+
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.1; letter-spacing: -0.03em;
+    color: var(--navy); margin-bottom: 0.5rem;
+    animation: fadeUp 0.7s ease 0.1s both;
+  }
+  .hero h1 em {
+    font-style: italic; color: var(--teal);
+  }
+  .hero-subtitle {
+    font-size: 1.1rem; color: var(--muted); line-height: 1.7;
+    margin-bottom: 2rem; max-width: 480px;
+    animation: fadeUp 0.7s ease 0.2s both;
+  }
+  .hero-chips {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.7s ease 0.3s both;
+  }
+  .chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; font-weight: 500;
+    padding: 0.4rem 0.9rem; border-radius: 6px;
+    background: var(--white); border: 1px solid var(--border);
+    color: var(--text); transition: all 0.2s;
+  }
+  .chip:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-1px); }
+
+  .hero-btns {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.7s ease 0.4s both;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.85rem 2rem; border-radius: 8px;
+    background: var(--navy); color: white;
+    font-weight: 600; font-size: 0.9rem; text-decoration: none;
+    transition: all 0.25s; border: 2px solid var(--navy);
+  }
+  .btn-primary:hover { background: var(--teal); border-color: var(--teal); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13,92,99,0.25); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.85rem 2rem; border-radius: 8px;
+    background: transparent; color: var(--navy);
+    font-weight: 600; font-size: 0.9rem; text-decoration: none;
+    border: 2px solid var(--navy); transition: all 0.25s;
+  }
+  .btn-secondary:hover { background: var(--navy); color: white; transform: translateY(-2px); }
+
+  /* Hero visual */
+  .hero-visual {
+    display: flex; justify-content: center; align-items: center;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+  .hero-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(10,37,64,0.08);
+    width: 100%; max-width: 380px;
+  }
+  .hero-card-header {
+    display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem; border-bottom: 1px solid var(--border);
+  }
+  .avatar {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal), var(--navy));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem; color: white; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .hero-card-name { font-weight: 700; font-size: 1rem; color: var(--navy); }
+  .hero-card-role { font-size: 0.8rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
+
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+  .stat-box {
+    background: var(--cream); border-radius: 10px;
+    padding: 1rem; text-align: center;
+  }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem; color: var(--navy); display: block;
+  }
+  .stat-label { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+
+  .skill-bars { display: flex; flex-direction: column; gap: 0.7rem; }
+  .skill-bar-item { display: flex; flex-direction: column; gap: 0.3rem; }
+  .skill-bar-label { display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 500; }
+  .skill-bar-track { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+  .skill-bar-fill {
+    height: 100%; border-radius: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--navy));
+    transform-origin: left;
+    animation: barGrow 1.2s ease 0.8s both;
+  }
+  @keyframes barGrow { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 4rem; }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; color: var(--teal); font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 60px; }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    color: var(--navy); letter-spacing: -0.02em;
+    margin-bottom: 3rem; line-height: 1.2;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .about-text { font-size: 1.05rem; color: #374151; line-height: 1.8; }
+  .about-text p { margin-bottom: 1.2rem; }
+  .about-text strong { color: var(--navy); }
+  .about-highlights { display: flex; flex-direction: column; gap: 1rem; }
+  .highlight-box {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1.2rem; border-radius: 12px;
+    background: var(--cream); border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+  .highlight-box:hover { border-color: var(--teal); transform: translateX(4px); }
+  .highlight-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--teal), var(--navy));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .highlight-text h4 { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.2rem; }
+  .highlight-text p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--cream); }
+  .timeline { display: flex; flex-direction: column; gap: 2rem; max-width: 800px; }
+  .timeline-item {
+    display: grid; grid-template-columns: 120px 1fr;
+    gap: 2rem; position: relative;
+  }
+  .timeline-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; color: var(--muted);
+    padding-top: 0.25rem; text-align: right; line-height: 1.6;
+  }
+  .timeline-content {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 16px; padding: 1.8rem;
+    position: relative; transition: all 0.25s;
+  }
+  .timeline-content:hover { box-shadow: 0 8px 30px rgba(10,37,64,0.08); transform: translateY(-2px); }
+  .timeline-content::before {
+    content: ''; position: absolute; left: -8px; top: 20px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--teal); border: 3px solid var(--cream);
+  }
+  .exp-title { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; }
+  .exp-company {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem; color: var(--teal); margin-bottom: 1rem;
+  }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .exp-bullets li {
+    font-size: 0.875rem; color: #374151; line-height: 1.6;
+    padding-left: 1.2rem; position: relative;
+  }
+  .exp-bullets li::before {
+    content: '▸'; position: absolute; left: 0;
+    color: var(--teal); font-size: 0.7rem; top: 0.2rem;
+  }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+  .exp-tag {
+    font-size: 0.7rem; font-family: 'JetBrains Mono', monospace;
+    padding: 0.2rem 0.6rem; border-radius: 4px;
+    background: rgba(13,92,99,0.08); color: var(--teal); border: 1px solid rgba(13,92,99,0.15);
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--white); }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; }
+  .project-card {
+    background: var(--cream); border: 1px solid var(--border);
+    border-radius: 16px; padding: 2rem; transition: all 0.25s;
+    position: relative; overflow: hidden;
+  }
+  .project-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--navy));
+    transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+  }
+  .project-card:hover { box-shadow: 0 12px 40px rgba(10,37,64,0.1); transform: translateY(-4px); border-color: var(--teal); }
+  .project-card:hover::before { transform: scaleX(1); }
+  .project-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem; color: var(--border); position: absolute;
+    top: 1rem; right: 1.5rem; line-height: 1;
+  }
+  .project-title { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+  .project-stack {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; color: var(--teal); margin-bottom: 1rem;
+  }
+  .project-desc { font-size: 0.875rem; color: #374151; line-height: 1.7; margin-bottom: 1.2rem; }
+  .project-points { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.5rem; }
+  .project-points li {
+    font-size: 0.82rem; color: var(--muted); padding-left: 1rem; position: relative;
+  }
+  .project-points li::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-size: 0.75rem; }
+  .project-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.8rem; font-weight: 600; color: var(--navy);
+    text-decoration: none; font-family: 'JetBrains Mono', monospace;
+    transition: color 0.2s;
+  }
+  .project-link:hover { color: var(--teal); }
+  .project-link::after { content: ' ↗'; }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--navy); }
+  #skills .section-label { color: var(--gold); }
+  #skills .section-label::after { background: rgba(255,255,255,0.1); }
+  #skills .section-title { color: var(--white); }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+  .skill-category {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 1.8rem;
+    transition: all 0.25s;
+  }
+  .skill-category:hover { background: rgba(255,255,255,0.08); border-color: rgba(201,168,76,0.3); }
+  .skill-cat-title {
+    font-size: 0.8rem; font-weight: 600; color: var(--gold);
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .skill-items { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-item {
+    font-size: 0.8rem; padding: 0.35rem 0.8rem;
+    border-radius: 6px; background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.12);
+    transition: all 0.2s;
+  }
+  .skill-item:hover { background: rgba(201,168,76,0.15); border-color: rgba(201,168,76,0.4); color: var(--gold); }
+
+  /* ── CERTIFICATIONS ── */
+  #certifications { background: var(--cream); }
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
+  .cert-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.5rem;
+    display: flex; align-items: flex-start; gap: 1rem;
+    transition: all 0.2s;
+  }
+  .cert-card:hover { border-color: var(--teal); box-shadow: 0 6px 20px rgba(13,92,99,0.1); }
+  .cert-icon {
+    width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--teal), var(--navy));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+  }
+  .cert-name { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.3rem; }
+  .cert-issuer { font-size: 0.78rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--white); }
+  .contact-wrapper {
+    max-width: 640px; margin: 0 auto; text-align: center;
+  }
+  .contact-wrapper .section-label { justify-content: center; }
+  .contact-wrapper .section-label::after { display: none; }
+  .contact-desc { font-size: 1.05rem; color: var(--muted); line-height: 1.7; margin-bottom: 2.5rem; }
+  .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.85rem 1.8rem; border-radius: 10px;
+    font-weight: 600; font-size: 0.875rem; text-decoration: none;
+    transition: all 0.25s; border: 2px solid;
+  }
+  .contact-link.email { background: var(--navy); color: white; border-color: var(--navy); }
+  .contact-link.email:hover { background: var(--teal); border-color: var(--teal); transform: translateY(-2px); }
+  .contact-link.linkedin { background: transparent; color: var(--navy); border-color: var(--navy); }
+  .contact-link.linkedin:hover { background: var(--navy); color: white; transform: translateY(-2px); }
+  .contact-link.github { background: transparent; color: var(--teal); border-color: var(--teal); }
+  .contact-link.github:hover { background: var(--teal); color: white; transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center; padding: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; color: var(--muted);
+    border-top: 1px solid var(--border);
+    background: var(--cream);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; text-align: center; gap: 3rem; }
+    .hero-chips { justify-content: center; }
+    .hero-btns { justify-content: center; }
+    .hero-visual { order: -1; }
+    .about-grid { grid-template-columns: 1fr; }
+    .timeline-item { grid-template-columns: 1fr; }
+    .timeline-date { text-align: left; padding-top: 0; }
+    section { padding: 4rem 1.5rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Shivani Mishra</div>
+  <ul class="nav-links">
+    <li><a href="#about">about</a></li>
+    <li><a href="#experience">experience</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-tag">Available for Work — Chandigarh / Mohali / Remote</div>
+    <h1>Data Analyst &<br><em>MIS Executive</em></h1>
+    <p class="hero-subtitle">
+      Turning raw data into actionable decisions. Skilled in SQL, Python, Power BI & Advanced Excel. 6-month internship experience with real-world dashboards and MIS reporting.
+    </p>
+    <div class="hero-chips">
+      <span class="chip">SQL</span>
+      <span class="chip">Python</span>
+      <span class="chip">Power BI</span>
+      <span class="chip">Advanced Excel</span>
+      <span class="chip">MIS Reporting</span>
+      <span class="chip">EDA</span>
+      <span class="chip">Zoho CRM</span>
+      <span class="chip">DAX</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View Projects ↓</a>
+      <a href="#contact" class="btn-secondary">Contact Me</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="hero-card-header">
+        <div class="avatar">SM</div>
+        <div>
+          <div class="hero-card-name">Shivani Mishra</div>
+          <div class="hero-card-role">data_analyst.py ✓</div>
+        </div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Live Projects</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">6+</span>
+          <span class="stat-label">Months Experience</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Certifications</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">5+</span>
+          <span class="stat-label">Tools Mastered</span>
+        </div>
+      </div>
+      <div class="skill-bars">
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>Excel & Power BI</span><span>90%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>SQL</span><span>82%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:82%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>Python (Pandas)</span><span>75%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:75%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">01 — About Me</div>
+  <div class="about-grid">
+    <div>
+      <h2 class="section-title">Passionate about<br>data-driven decisions</h2>
+      <div class="about-text">
+        <p>Hi! I'm <strong>Shivani Mishra</strong>, a Data Analyst and MIS Executive based in <strong>Mohali, Punjab</strong>. I hold an <strong>M.Sc. in Information Technology</strong> from SCD Government College, Ludhiana.</p>
+        <p>I completed a <strong>6-month Data Analyst internship</strong> at Bringle Tech Pvt Ltd, where I built Power BI dashboards, wrote complex SQL queries, and performed EDA on real-world datasets — reducing reporting time by 30%.</p>
+        <p>Prior to that, I worked as an <strong>IT Coordinator at SPC Healthcare</strong>, managing CRM operations, MIS reports, and workflow automation using Zoho tools.</p>
+        <p>I'm open to relocate to <strong>Chandigarh, Mohali, Noida, Gurgaon</strong> or work <strong>remotely</strong>.</p>
+      </div>
+    </div>
+    <div class="about-highlights">
+      <div class="highlight-box">
+        <div class="highlight-icon">📊</div>
+        <div class="highlight-text">
+          <h4>MIS Reporting Expert</h4>
+          <p>Daily/weekly/monthly reports using Advanced Excel — Pivot Tables, VLOOKUP, Conditional Formatting</p>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <div class="highlight-icon">🔍</div>
+        <div class="highlight-text">
+          <h4>Data Analysis & EDA</h4>
+          <p>End-to-end exploratory data analysis using Python (Pandas, NumPy) on real business datasets</p>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <div class="highlight-icon">📈</div>
+        <div class="highlight-text">
+          <h4>Power BI Dashboards</h4>
+          <p>Interactive KPI dashboards with DAX measures — reduced reporting time by 30%</p>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <div class="highlight-icon">🏥</div>
+        <div class="highlight-text">
+          <h4>CRM & Healthcare Domain</h4>
+          <p>Zoho CRM operations at SPC Healthcare — data management, workflow automation, reporting</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">02 — Experience</div>
+  <h2 class="section-title">Work Experience</h2>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-date">Sep 2025<br>—<br>Mar 2026</div>
+      <div class="timeline-content">
+        <div class="exp-title">Data Analyst Intern</div>
+        <div class="exp-company">Bringle Tech Pvt Ltd · Ludhiana, Punjab</div>
+        <ul class="exp-bullets">
+          <li>Built interactive Power BI dashboards with DAX measures & KPIs — reduced manual reporting time by 30%</li>
+          <li>Prepared daily/weekly/monthly MIS reports using Advanced Excel (Pivot Tables, VLOOKUP)</li>
+          <li>Wrote complex SQL queries (joins, subqueries, aggregations) for stakeholder reporting</li>
+          <li>Performed data cleaning & preprocessing using Python (Pandas, NumPy)</li>
+          <li>Conducted end-to-end EDA on real-world datasets to uncover business insights</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Power BI</span>
+          <span class="exp-tag">Python</span>
+          <span class="exp-tag">SQL</span>
+          <span class="exp-tag">Excel</span>
+          <span class="exp-tag">EDA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">Jun 2024<br>—<br>Apr 2025</div>
+      <div class="timeline-content">
+        <div class="exp-title">IT Coordinator | CRM Operations & Reporting</div>
+        <div class="exp-company">SPC Healthcare · Ludhiana, Punjab</div>
+        <ul class="exp-bullets">
+          <li>Managed customer records & MIS analytical reports using Zoho CRM</li>
+          <li>Analyzed customer feedback surveys via Zoho Survey for management insights</li>
+          <li>Streamlined recruitment data pipelines via Zoho Recruit</li>
+          <li>Automated routine workflows — reduced manual data entry errors significantly</li>
+          <li>Coordinated project tracking using Sefmed Software & Google Sheets</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Zoho CRM</span>
+          <span class="exp-tag">MIS Reports</span>
+          <span class="exp-tag">Automation</span>
+          <span class="exp-tag">Google Sheets</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">03 — Projects</div>
+  <h2 class="section-title">Data Analytics Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-num">01</div>
+      <div class="project-title">Superstore Sales Analysis</div>
+      <div class="project-stack">Python · Pandas · Matplotlib</div>
+      <p class="project-desc">End-to-end sales performance analysis on a retail dataset of 9,950 records to uncover profit distribution and monthly trends.</p>
+      <ul class="project-points">
+        <li>Analyzed sales performance, profit distribution & monthly trends</li>
+        <li>Data cleaning: duplicates handling & date column transformation</li>
+        <li>Visualizations: category-wise sales, region-wise profit using Matplotlib</li>
+        <li>Identified high-performing products & profitable regions</li>
+      </ul>
+      <a href="https://github.com/shivanimishra240808-lgtm/superstore-sales-analysis-python" target="_blank" class="project-link">View on GitHub</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">02</div>
+      <div class="project-title">Customer 360 Analytics Dashboard</div>
+      <div class="project-stack">Python · SQL · Power BI</div>
+      <p class="project-desc">Comprehensive analytics solution analyzing customer purchasing behavior, segmentation, and revenue contribution across regions.</p>
+      <ul class="project-points">
+        <li>Customer segmentation & purchasing behavior analysis</li>
+        <li>Interactive Power BI dashboards with country-wise performance</li>
+        <li>UK identified as leading market by customer activity & revenue</li>
+        <li>High-value segment identification for revenue growth</li>
+      </ul>
+      <a href="https://github.com/shivanimishra240808-lgtm/Customer-360-Analytics-Dashboard" target="_blank" class="project-link">View on GitHub</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">05</div>
+      <div class="project-title">Retail Supply Chain & Customer Intelligence</div>
+      <div class="project-stack">Python · SQL · Power BI · Excel</div>
+      <p class="project-desc">End-to-end analytics solution evaluating sales performance, customer behavior, and product insights across a retail supply chain.</p>
+      <ul class="project-points">
+        <li>Interactive Power BI dashboards: Sales, Profit & Order Frequency KPIs</li>
+        <li>Customer segmentation & product-level profitability analysis</li>
+        <li>High customer engagement insights (avg order frequency: 6.5)</li>
+        <li>Cost inefficiency identification & optimization opportunities</li>
+      </ul>
+      <a href="https://github.com/shivanimishra240808-lgtm/Retail-Supply-Chain-Dashboard" target="_blank" class="project-link">View on GitHub</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">04 — Skills</div>
+  <h2 class="section-title">Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-category">
+      <div class="skill-cat-title">📊 MIS & BI Tools</div>
+      <div class="skill-items">
+        <span class="skill-item">Power BI</span>
+        <span class="skill-item">DAX</span>
+        <span class="skill-item">Advanced Excel</span>
+        <span class="skill-item">Pivot Tables</span>
+        <span class="skill-item">VLOOKUP</span>
+        <span class="skill-item">Google Sheets</span>
+        <span class="skill-item">KPI Dashboards</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title">💻 Programming & Query</div>
+      <div class="skill-items">
+        <span class="skill-item">Python</span>
+        <span class="skill-item">Pandas</span>
+        <span class="skill-item">NumPy</span>
+        <span class="skill-item">SQL</span>
+        <span class="skill-item">Joins</span>
+        <span class="skill-item">Subqueries</span>
+        <span class="skill-item">Aggregations</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title">🔬 Analytics</div>
+      <div class="skill-items">
+        <span class="skill-item">EDA</span>
+        <span class="skill-item">Data Cleaning</span>
+        <span class="skill-item">Preprocessing</span>
+        <span class="skill-item">Visualization</span>
+        <span class="skill-item">Statistical Analysis</span>
+        <span class="skill-item">ETL</span>
+        <span class="skill-item">Databricks</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title">🛠 CRM & Tools</div>
+      <div class="skill-items">
+        <span class="skill-item">Zoho CRM</span>
+        <span class="skill-item">Zoho Recruit</span>
+        <span class="skill-item">Zoho Survey</span>
+        <span class="skill-item">Sefmed Software</span>
+        <span class="skill-item">Canva</span>
+        <span class="skill-item">MS Office</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-label">05 — Certifications</div>
+  <h2 class="section-title">Certifications & Training</h2>
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div class="cert-icon">🏗️</div>
+      <div>
+        <div class="cert-name">Data Engineering Certification</div>
+        <div class="cert-issuer">Analyx Academy · Apr 2026</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">📊</div>
+      <div>
+        <div class="cert-name">Microsoft Excel Certification</div>
+        <div class="cert-issuer">Advanced Excel for Data Analysis</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🗄️</div>
+      <div>
+        <div class="cert-name">SQL Micro Course</div>
+        <div class="cert-issuer">Structured Query Language for Data Analysis</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🐍</div>
+      <div>
+        <div class="cert-name">Python Workshop Certificate</div>
+        <div class="cert-issuer">3-Hour Intensive Python Programming Training</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrapper">
+    <div class="section-label">06 — Contact</div>
+    <h2 class="section-title">Let's Work Together</h2>
+    <p class="contact-desc">
+      I'm actively looking for <strong>Data Analyst</strong> and <strong>MIS Executive</strong> roles in Chandigarh, Mohali, Noida, Gurgaon or Remote. Feel free to reach out!
+    </p>
+    <div class="contact-links">
+      <a href="mailto:shivanimishra240808@gmail.com" class="contact-link email">✉ Email Me</a>
+      <a href="https://linkedin.com/in/shivani--mishra" target="_blank" class="contact-link linkedin">in LinkedIn</a>
+      <a href="https://github.com/shivanimishra240808-lgtm" target="_blank" class="contact-link github">⌥ GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Designed & built by Shivani Mishra · Data Analyst · Mohali, Punjab · 2026</p>
+</footer>
+
+</body>
+</html>
